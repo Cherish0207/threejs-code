@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>vue-iClient3D-WebGL example</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <!-- Cesium依赖 -->
+    <link href="http://support.supermap.com.cn:8090/webgl/Build/Cesium/Widgets/widgets.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://support.supermap.com.cn:8090/webgl/Build/Cesium/Cesium.js"></script>
+    <!-- 组件包 -->
+    <link href="http://support.supermap.com.cn:8090/webgl/examples/component/styles/vue-iclient3d-webgl.min.css" rel="stylesheet" />
+    <script src="http://support.supermap.com.cn:8090/webgl/examples/component/js/vue-iclient3d-webgl.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <sm-viewer :scene-url="URL">
+        <sm3d-measure></sm3d-measure>
+    </sm-viewer>
+</div>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            URL: "http://www.supermapol.com/realspace/services/3D-ZF_normal/rest/realspace"
+        }
+    });
+</script>
+</body>
+</html>
