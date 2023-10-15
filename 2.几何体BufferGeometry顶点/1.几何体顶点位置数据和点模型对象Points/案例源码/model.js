@@ -22,6 +22,17 @@ const material = new THREE.PointsMaterial({
     color: 0xffff00,
     size: 10.0 //点对象像素尺寸
 }); 
-const points = new THREE.Points(geometry, material); //点模型对象
+const basicMaterial = new THREE.MeshBasicMaterial({
+    color: 0x0000ff, //设置材质颜色
+    // color: 0xffff00,
+    // size: 10.0 //点对象像素尺寸
+});  
+const lineMaterial = new THREE.LineBasicMaterial({
+    color: 0xff00ff //线条颜色
+}); 
 
-export default points;
+
+const line = new THREE.LineSegments(geometry, lineMaterial);
+const points = new THREE.Mesh(geometry, basicMaterial); //点模型对象
+
+export default line;
