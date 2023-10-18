@@ -32,12 +32,9 @@ const renderer = (() => {
   renderer.setPixelRatio(window.devicePixelRatio); //防止输出模糊
   renderer.setSize(width, height);
   can.appendChild(renderer.domElement);
-  const controls = new OrbitControls(camera, renderer.domElement);
   // 加载gltf模型如果出现颜色偏差，需要设置renderer.outputEncoding解决
   renderer.outputEncoding = THREE.sRGBEncoding;
-  controls.addEventListener("change", function () {
-    renderer.render(scene, camera);
-  });
+
   return renderer;
 })();
 
@@ -58,3 +55,11 @@ window.onresize = () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 };
+// camera.position.set(202, 123, 125);
+camera.position.set(-27.89946421649832, 2.1430827174824683, 57.01962024512579);
+// 可视化选择相机位置
+const controls = new OrbitControls(camera, renderer.domElement);
+
+controls.addEventListener("change", function () {
+  console.log("camera.position", camera.position);
+});
