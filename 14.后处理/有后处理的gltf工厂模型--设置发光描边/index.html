@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      overflow: hidden;
+      margin: 0px;
+    }
+
+    #A {
+      position: absolute;
+      top: 0;
+      z-index: 10;
+      color: #fff;
+
+    }
+
+    #B {
+      position: absolute;
+      top: 0;
+      left: 100px;
+      z-index: 10;
+      color: #fff;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="can">
+  </div>
+  <div id="A" class="bu">设备A</div>
+  <div id="B" class="bu" style="margin-left: 10px;">设备B</div>
+
+  <script type="importmap">
+    {
+			"imports": {
+				"three": "../../../three.js/build/three.module.js",
+                "three/addons/": "../../../three.js/examples/jsm/"
+			}
+		}
+  </script>
+
+  <script src="./index.js" type="module"></script>
+</body>
+
+</html>

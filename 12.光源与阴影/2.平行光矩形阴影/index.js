@@ -27,13 +27,20 @@ directionalLight.shadow.camera.bottom = -100;
 directionalLight.shadow.camera.near = 0.5;
 directionalLight.shadow.camera.far = 300;
 const orCamera = directionalLight.shadow.camera 
-gui.add(orCamera, 'right', 50, 150);
-gui.add(orCamera, 'far', 50, 400);
 
 console.log("阴影相机属性", directionalLight.shadow.camera);
 // 可视化平行光阴影对应的正投影相机对象
 const cameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
 scene.add(cameraHelper);
+
+gui.add(orCamera, 'left', -150, -50).onChange(function(v){
+  orCamera.updateProjectionMatrix();//相机更新投影矩阵
+  cameraHelper.update();//相机范围变化了，相机辅助对象更新
+});
+gui.add(orCamera, 'far', 50, 400).onChange(function(v){
+  orCamera.updateProjectionMatrix();//相机更新投影矩阵
+  cameraHelper.update();//相机范围变化了，相机辅助对象更新
+});
 
 const width = window.innerWidth;
 const height = window.innerHeight;
